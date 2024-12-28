@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/screens/create_room_screen.dart';
+import 'package:tic_tac_toe/screens/game_Screen.dart';
 import 'package:tic_tac_toe/screens/join_room_screen.dart';
 import 'package:tic_tac_toe/screens/main_menu_screen.dart';
 import 'package:tic_tac_toe/utils/colors.dart';
@@ -8,6 +9,12 @@ void main() {
   runApp(const TicTocApp());
 }
 
+// FutureBuilder: take a req => send it
+// StreameBuilder: can take a req => send it -> listens to it
+//snapshot -> Stream -> Socket io
+
+// http - one way
+//Soket io - Two way
 class TicTocApp extends StatelessWidget {
   const TicTocApp({super.key});
 
@@ -20,6 +27,7 @@ class TicTocApp extends StatelessWidget {
         MainMenuScreen.routName: (context) => const MainMenuScreen(),
         JoinRoomScreen.routeName: (context) => const JoinRoomScreen(),
         CreateRoomScreen.routeName: (context) => const CreateRoomScreen(),
+        GameScreen.routName: (context) => const GameScreen()
       },
       home: const MainMenuScreen(),
     );
