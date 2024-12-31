@@ -56,7 +56,6 @@ io.on('connection', (socket)=>{
       console.log(nickname);
       try{
         if(!roomId.match(/^[0-9a-fA-F]{24}$/)){
-          console.log("a7ooo1")
           socket.emit('errorOccured','Please enter a valid room Id');
           return;
         }
@@ -73,9 +72,7 @@ io.on('connection', (socket)=>{
           room = await room.save();
           io.to(roomId).emit("joinRoomSuccess" , room);
           io.to(roomId).emit("udatePlayers" , room.players);
-          io.to(roomId).emit("updateRoom" , room);
-          console.log("a7ooo")
-    
+          io.to(roomId).emit("updateRoom" , room);    
         }else{
           socket.emit('errorOccured','the game is in progress , try again later');
     
